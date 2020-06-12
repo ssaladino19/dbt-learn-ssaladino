@@ -54,8 +54,18 @@ refunds as (
 
 select
     orders.order_id,
+    orders.order_date,
+    orders.event_name,
+    orders.order_items,
+    orders.tickets_purchased,
+    orders.tax_amount,
+    orders.total_paid,
+    orders.order_cancelled,
     charges.charge_id,
-    refunds.refund_id
+    charges.captured as charge_captured,
+    charges.status as charge_status,
+    refunds.refund_id,
+    refunds.status as refund_status
 from
     orders
 left join

@@ -45,6 +45,9 @@ models:
         tests:
           - unique
           - not_null
+      - name: order_cancelled
+        tests:
+          - not_null
 
   - name: stg_ticket_tailor_charges
     description: This model cleans up payment data from Stripe.
@@ -83,6 +86,8 @@ models:
         tests:
           - unique
           - not_null
+          - unique_threshold:
+              threshold: 0.05
 
   - name: ticket_tailor_orders
     description: Model to analyze charge and refunds for ticket tailor orders.

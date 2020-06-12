@@ -1,11 +1,12 @@
-Welcome to your new dbt project!
-
-### Using the starter project
-
-Try running the following commands:
-- dbt run
-- dbt test
-
+### dbt Learn mid-June 2020
+This project usese Jaffle Shop example data to:
+- Create staging models for basic cleaning.
+- Create analytical models with business logic for consumption.
+- Establish data sources for staging models and documentation.
+- Test data models and sources, primarily through schema tests and freshness.
+- Leverage Jinja via macros and dbt_utils.
+- Configure project and schema YAML files.
+- And so much more!
 
 ### Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
