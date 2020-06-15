@@ -37,6 +37,36 @@ models:
           - accepted_values:
               values: ['success', 'fail']
 
+  - name: stg_ticket_tailor_orders
+    description: This model cleans up payment data from Stripe.
+    columns:
+      - name: order_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: order_cancelled
+        tests:
+          - not_null
+
+  - name: stg_ticket_tailor_charges
+    description: This model cleans up payment data from Stripe.
+    columns:
+      - name: charge_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_ticket_tailor_refunds
+    description: This model cleans up payment data from Stripe.
+    columns:
+      - name: refund_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+
   - name: customers
     description: '{{ doc("customers") }}'
     columns:
@@ -50,6 +80,17 @@ models:
 
   - name: orders
     description: '{{ doc("orders") }}'
+    columns:
+      - name: order_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+          - unique_threshold:
+              threshold: 0.05
+
+  - name: ticket_tailor_orders
+    description: Model to analyze charge and refunds for ticket tailor orders.
     columns:
       - name: order_id
         description: Primary key
